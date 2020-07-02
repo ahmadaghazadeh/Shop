@@ -7,7 +7,7 @@ using AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts;
 
 namespace AhmadAghazadeh.Shop.CustomerContext.Facade
 {
-    public  class CustomerCommandFacade:FacadeCommandBase, ICustomerCommandFacade
+    public  class CustomerCommandFacade:CommandFacadeBase, ICustomerCommandFacade
     {
         public CustomerCommandFacade(ICommandBus commandBus) : base(commandBus)
         {

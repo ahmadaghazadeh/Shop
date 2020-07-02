@@ -36,15 +36,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhmadAghazadeh.Shop.Custome
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhmadAghazadeh.Framework.Application", "AhmadAghazadeh.Framework.Application\AhmadAghazadeh.Framework.Application.csproj", "{22C261B2-3FC3-4C1B-9FDD-2343434FE78E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhmadAghazadeh.Framework.DependencyInjection", "AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj", "{2B35328D-AD1A-4C55-9406-3D29B1253BCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhmadAghazadeh.Framework.DependencyInjection", "AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj", "{2B35328D-AD1A-4C55-9406-3D29B1253BCC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Facade", "Facade", "{0C367D49-0708-49DC-B212-29BCB9826177}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhmadAghazadeh.Shop.CustomerContext.Facade", "AhmadAghazadeh.Shop.CustomerContext.Facade\AhmadAghazadeh.Shop.CustomerContext.Facade.csproj", "{B00B33CD-3B6C-46C8-A41B-D9FBD211D27E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhmadAghazadeh.Shop.CustomerContext.Facade", "AhmadAghazadeh.Shop.CustomerContext.Facade\AhmadAghazadeh.Shop.CustomerContext.Facade.csproj", "{B00B33CD-3B6C-46C8-A41B-D9FBD211D27E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhmadAghazadeh.Framework.Facade", "AhmadAghazadeh.Framework.Facade\AhmadAghazadeh.Framework.Facade.csproj", "{B0C3E257-0C23-4C9F-A5E4-D2BDD6395620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhmadAghazadeh.Framework.Facade", "AhmadAghazadeh.Framework.Facade\AhmadAghazadeh.Framework.Facade.csproj", "{B0C3E257-0C23-4C9F-A5E4-D2BDD6395620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts", "AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts.csproj", "{BEEAA13C-9495-41B0-A936-C4C9DFAD5B09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts", "AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts.csproj", "{BEEAA13C-9495-41B0-A936-C4C9DFAD5B09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhmadAghazadeh.Shop.CustomerContext.Configuration", "AhmadAghazadeh.Shop.CustomerContext.Configuration\AhmadAghazadeh.Shop.CustomerContext.Configuration.csproj", "{E9878478-83BA-4185-AD95-BC02D517DB29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhmadAghazadeh.Shop.CustomerContext.Domain.Services", "AhmadAghazadeh.Shop.CustomerContext.Domain.Services\AhmadAghazadeh.Shop.CustomerContext.Domain.Services.csproj", "{B134A68C-80A6-4635-AC38-3479C6218D2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,6 +104,14 @@ Global
 		{BEEAA13C-9495-41B0-A936-C4C9DFAD5B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEEAA13C-9495-41B0-A936-C4C9DFAD5B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEEAA13C-9495-41B0-A936-C4C9DFAD5B09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9878478-83BA-4185-AD95-BC02D517DB29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9878478-83BA-4185-AD95-BC02D517DB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9878478-83BA-4185-AD95-BC02D517DB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9878478-83BA-4185-AD95-BC02D517DB29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B134A68C-80A6-4635-AC38-3479C6218D2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B134A68C-80A6-4635-AC38-3479C6218D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B134A68C-80A6-4635-AC38-3479C6218D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B134A68C-80A6-4635-AC38-3479C6218D2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -121,6 +133,8 @@ Global
 		{B00B33CD-3B6C-46C8-A41B-D9FBD211D27E} = {0C367D49-0708-49DC-B212-29BCB9826177}
 		{B0C3E257-0C23-4C9F-A5E4-D2BDD6395620} = {F7A7238A-27BD-4ABA-8A74-B71833213E7F}
 		{BEEAA13C-9495-41B0-A936-C4C9DFAD5B09} = {0C367D49-0708-49DC-B212-29BCB9826177}
+		{E9878478-83BA-4185-AD95-BC02D517DB29} = {7F6C8AD8-D9C6-4EA7-91A3-382A666F77B1}
+		{B134A68C-80A6-4635-AC38-3479C6218D2F} = {40F2D6E1-DA3E-432A-910F-848C3F97006E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B430E361-6F75-49F1-B1F7-0E87FD71BF8F}

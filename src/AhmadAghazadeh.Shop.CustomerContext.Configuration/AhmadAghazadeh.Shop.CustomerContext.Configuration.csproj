@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Castle.Windsor" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Framework.Security\AhmadAghazadeh.Framework.Security.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Apllication\AhmadAghazadeh.Shop.CustomerContext.Application.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Facade\AhmadAghazadeh.Shop.CustomerContext.Facade.csproj" />
+  </ItemGroup>
+
+</Project>

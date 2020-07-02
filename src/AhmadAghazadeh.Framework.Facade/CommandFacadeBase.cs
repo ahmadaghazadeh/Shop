@@ -3,9 +3,9 @@ using AhmadAghazadeh.Framework.Core.Application;
 
 namespace AhmadAghazadeh.Framework.Facade
 {
-    public abstract class FacadeCommandBase
+    public abstract class CommandFacadeBase
     {
-        protected FacadeCommandBase(ICommandBus commandBus)
+        protected CommandFacadeBase(ICommandBus commandBus)
         {
             CommandBus = commandBus;
         }
