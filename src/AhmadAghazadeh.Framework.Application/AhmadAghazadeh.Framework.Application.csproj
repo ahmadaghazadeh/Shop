@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ahmad.Aghazadeh.Framework.Core\AhmadAghazadeh.Framework.Core.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Framework.Persistence\AhmadAghazadeh.Framework.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

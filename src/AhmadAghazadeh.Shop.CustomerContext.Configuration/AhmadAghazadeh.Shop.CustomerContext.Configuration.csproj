@@ -5,14 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Castle.Windsor" Version="5.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Framework.Security\AhmadAghazadeh.Framework.Security.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Apllication\AhmadAghazadeh.Shop.CustomerContext.Application.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Domain.Services\AhmadAghazadeh.Shop.CustomerContext.Domain.Services.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Facade\AhmadAghazadeh.Shop.CustomerContext.Facade.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

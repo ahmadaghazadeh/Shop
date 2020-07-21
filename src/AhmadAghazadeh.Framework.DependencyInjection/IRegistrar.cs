@@ -1,9 +1,9 @@
-﻿using Castle.Windsor;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace AhmadAghazadeh.Framework.DependencyInjection
 {
     public interface IRegistrar
     {
-        void Register(WindsorContainer container);
+        void Register(IServiceCollection services, string connectionString);
     }
 }

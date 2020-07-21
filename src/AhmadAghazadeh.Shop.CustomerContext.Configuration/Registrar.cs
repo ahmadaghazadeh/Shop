@@ -1,33 +1,32 @@
-﻿using AhmadAghazadeh.Framework.Application;
+﻿
+using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.Core.Security;
 using AhmadAghazadeh.Framework.DependencyInjection;
-using AhmadAghazadeh.Framework.Domain;
 using AhmadAghazadeh.Framework.Security;
-using AhmadAghazadeh.Shop.CustomerContext.Application.Customers;
-using AhmadAghazadeh.Shop.CustomerContext.Domain.Services;
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
+using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Services;
+using AhmadAghazadeh.Shop.CustomerContext.Domain.Services.Customers;
+using AhmadAghazadeh.Shop.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AhmadAghazadeh.Shop.CustomerContext.Configuration
 {
-    public class Registrar : IRegistrar
+    public class Registrar  : RegistrarBase<Registrar>
     {
-        public void Register(WindsorContainer container)
+        public override void Register(IServiceCollection services)
         {
-            container.Register(Component.For<IHashProvider>()
-                               .ImplementedBy<HashProvider>()
-                               .LifestyleSingleton());
+         
+            services.AddTransient<INationalCodeDuplicationChecker, NationalCodeDuplicationChecker>();
+        }
 
-            container.Register(Classes.FromAssemblyContaining<SignUpCommandHandler>()
-                               .BasedOn(typeof(ICommandHandler<>))
-                               .WithServiceAllInterfaces()
-                               .LifestyleTransient());
+        public override void RegisterPersistence(IServiceCollection services, string connectionString)
+        {
+            services.AddDbContext<IDbContext, ShopDbContext>((provider, options) =>
+            {
+                options.UseSqlServer(connectionString);
+                options.EnableSensitiveDataLogging();
 
-            container.Register(Classes.FromAssemblyContaining<INationalCodeDuplicationChecker>()
-                              .BasedOn(typeof(IDomainService))
-                              .WithServiceAllInterfaces()
-                              .LifestyleTransient());
-
+            });
         }
     }
 }

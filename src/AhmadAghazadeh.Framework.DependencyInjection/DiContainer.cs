@@ -1,20 +1,25 @@
 ﻿using System;
 using AhmadAghazadeh.Framework.Core.DependencyInjection;
-using Castle.Windsor;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AhmadAghazadeh.Framework.DependencyInjection
 {
-    public class DiContainer:IDiContainer
+    public class DiContainer : IDiContainer
     {
-        private readonly WindsorContainer container;
+        private readonly IServiceProvider _serviceProvider;
 
-        public DiContainer(WindsorContainer container)
+        public DiContainer(IServiceProvider serviceProvider)
         {
-            this.container = container;
+            _serviceProvider = serviceProvider;
         }
         public T Resolve<T>()
         {
-            return container.Resolve<T>();
+            return _serviceProvider.GetRequiredService<T>();
+        }
+
+        public object Resolve(Type type)
+        {
+            return _serviceProvider.GetRequiredService(type);
         }
     }
 }

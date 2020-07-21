@@ -2,7 +2,7 @@
 using AhmadAghazadeh.Framework.Application;
 using AhmadAghazadeh.Shop.CustomerContext.Application.Contracts.Customers;
 using AhmadAghazadeh.Shop.CustomerContext.Domain;
-using AhmadAghazadeh.Shop.CustomerContext.Domain.Services;
+using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Services;
 
 namespace AhmadAghazadeh.Shop.CustomerContext.Application.Customers
 {
