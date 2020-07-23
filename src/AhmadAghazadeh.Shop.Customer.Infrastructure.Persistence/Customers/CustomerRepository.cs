@@ -29,16 +29,15 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
             return GetById(commandCustomerId);
         }
 
-        public void Update(Customer customer)
-        {
-            context.Set<Customer>().Update(customer);
-        }
 
         public bool Contains(Expression<Func<Customer, bool>> predicate)
         {
             return context.Set<Customer>().Any(predicate);
         }
 
-       
+        void ICustomerRepository.Update(Customer customer)
+        {
+            Update(customer);
+        }
     }
 }

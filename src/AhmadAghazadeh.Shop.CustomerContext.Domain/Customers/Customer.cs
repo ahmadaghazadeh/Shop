@@ -42,7 +42,7 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Domain.Customers
 
         public int Score { get;private set; }
 
-        public ICollection<Address> Addresses { get; set; }
+        public ICollection<Address> Addresses { get; set; } = new HashSet<Address>();
 
         public void AddAddress(Address address)
         {

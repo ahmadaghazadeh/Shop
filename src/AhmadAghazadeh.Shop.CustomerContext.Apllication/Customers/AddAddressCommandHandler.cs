@@ -21,11 +21,11 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Application.Customers
             var address = new Address(customer.Id, command.PostalCode, command.AddressLine, command.CityId)
             {
                 Telephone = command.Telephone,
-                Coordinate = command.Coordinate
+                Coordinate = command.Coordinate 
             };
             customer.AddAddress(address);
 
-            customerRepository.Update(customer);
+           // customerRepository.Update(customer);
         }
     }
 }
