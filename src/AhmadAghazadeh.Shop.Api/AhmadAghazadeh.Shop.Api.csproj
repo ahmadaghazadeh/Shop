@@ -22,6 +22,7 @@
     <ProjectReference Include="..\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Configuration\AhmadAghazadeh.Shop.CustomerContext.Configuration.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Facade.Contracts\AhmadAghazadeh.Shop.OrderContext.Facade.Contracts.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.ReadModel.Database\AhmadAghazadeh.Shop.ReadModel.Database.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.ReadModel.Facade.Contracts\AhmadAghazadeh.Shop.ReadModel.Query.Facade.Contracts.csproj" />

@@ -19,7 +19,6 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Application.Customers
             var customer = customerRepository.GetCustomer(command.CustomerId);
             customer.DeleteAddress(command.AddressId);
             
-            customerRepository.Update(customer);
         }
     }
 }

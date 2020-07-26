@@ -16,9 +16,9 @@ namespace AhmadAghazadeh.Framework.Persistence
         {
             builder.Property(c => c.Id)
                 .HasColumnType(SqlDbType.UniqueIdentifier.ToString())
-                .IsRequired();
+                .IsRequired().ValueGeneratedNever();
             builder.HasKey(c=>c.Id);
-
+            
             builder.ToTable(typeof(TEntity).Name, typeof(TEntity).Namespace?.Split('.')[1]);
         }
     }

@@ -6,7 +6,6 @@ using AhmadAghazadeh.Framework.Core.EventBus;
 using AhmadAghazadeh.Framework.Core.Facade;
 using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.Core.Security;
-using AhmadAghazadeh.Framework.Facade;
 using AhmadAghazadeh.Framework.Persistence;
 using AhmadAghazadeh.Framework.Security;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,7 +30,7 @@ namespace AhmadAghazadeh.Framework.DependencyInjection
 
         public virtual void RegisterPersistence(IServiceCollection services, string connectionString)
         {
-
+           
         }
          
 

@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using AhmadAghazadeh.Shop.CustomerContext.Application.Contracts.Customers;
+﻿using AhmadAghazadeh.Shop.CustomerContext.Application.Contracts.Customers;
 using AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts;
-using AhmadAghazadeh.Shop.ReadModel.Query.Facade.Contracts.Customer;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AhmadAghazadeh.Shop.Api.Controllers
 {
+
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class CustomerController : ControllerBase

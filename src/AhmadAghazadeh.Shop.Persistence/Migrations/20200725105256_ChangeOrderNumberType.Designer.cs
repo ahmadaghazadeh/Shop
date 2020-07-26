@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AhmadAghazadeh.Shop.Persistence.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20200721115630_FirstInit")]
-    partial class FirstInit
+    [Migration("20200725105256_ChangeOrderNumberType")]
+    partial class ChangeOrderNumberType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,27 +24,26 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
             modelBuilder.Entity("AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Address", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("UniqueIdentifier");
 
                     b.Property<string>("AddressLine")
                         .IsRequired()
-                        .HasColumnType("NVarChar250");
+                        .HasColumnType("NVarChar(250)");
 
                     b.Property<int>("CityId")
                         .HasColumnType("Int");
 
                     b.Property<string>("Coordinate")
-                        .HasColumnType("NVarChar25");
+                        .HasColumnType("NVarChar(25)");
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("UniqueIdentifier");
 
                     b.Property<string>("PostalCode")
-                        .HasColumnType("Char10");
+                        .HasColumnType("Char(10)");
 
                     b.Property<string>("Telephone")
-                        .HasColumnType("Char11");
+                        .HasColumnType("Char(11)");
 
                     b.HasKey("Id");
 
@@ -56,7 +55,6 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
             modelBuilder.Entity("AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Customer", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("UniqueIdentifier");
 
                     b.Property<string>("Email")
@@ -65,8 +63,7 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("NVarChar(50)")
-                        .HasMaxLength(50);
+                        .HasColumnType("NVarChar(50)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -87,6 +84,52 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                     b.ToTable("Customer","Shop");
                 });
 
+            modelBuilder.Entity("AhmadAghazadeh.Shop.OrderContext.Domain.Orders.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("UniqueIdentifier");
+
+                    b.Property<long>("Number")
+                        .HasColumnType("BigInt");
+
+                    b.Property<double>("ShippingCost")
+                        .HasColumnType("Float");
+
+                    b.Property<double>("Tax")
+                        .HasColumnType("Float");
+
+                    b.Property<double>("TotalAmount")
+                        .HasColumnType("Float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Order","Shop");
+                });
+
+            modelBuilder.Entity("AhmadAghazadeh.Shop.OrderContext.Domain.Orders.OrderItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("UniqueIdentifier");
+
+                    b.Property<Guid?>("OrderId")
+                        .HasColumnType("UniqueIdentifier");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("Float");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("UniqueIdentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("Int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItem","Shop");
+                });
+
             modelBuilder.Entity("AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Address", b =>
                 {
                     b.HasOne("AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Customer", "Customer")
@@ -94,6 +137,13 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AhmadAghazadeh.Shop.OrderContext.Domain.Orders.OrderItem", b =>
+                {
+                    b.HasOne("AhmadAghazadeh.Shop.OrderContext.Domain.Orders.Order", "Order")
+                        .WithMany("Cart")
+                        .HasForeignKey("OrderId");
                 });
 #pragma warning restore 612, 618
         }

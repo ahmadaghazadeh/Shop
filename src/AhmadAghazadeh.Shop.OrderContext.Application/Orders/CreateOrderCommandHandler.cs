@@ -19,11 +19,10 @@ namespace AhmadAghazadeh.Shop.OrderContext.Application.Orders
         }
         public void Execute(CreateOrderCommand command)
         {
-
-            var orderNumber = orderRepository.GenerateOrderNumber();
+            var number = orderRepository.GenerateOrderNumber();
             var cart = command.Cart.Select(c => new Domain.Orders.OrderItem(c.ProductId, c.Quantity, c.Price));
-            var order = new Order(orderNumber, cart, eventBus);
-            orderRepository.Create(order);
+            var order = new Order(number,cart, eventBus);
+            orderRepository.OrderCreate(order);
 
         }
     }

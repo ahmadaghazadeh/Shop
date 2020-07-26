@@ -24,8 +24,6 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Application.Customers
                 Coordinate = command.Coordinate 
             };
             customer.AddAddress(address);
-
-           // customerRepository.Update(customer);
         }
     }
 }

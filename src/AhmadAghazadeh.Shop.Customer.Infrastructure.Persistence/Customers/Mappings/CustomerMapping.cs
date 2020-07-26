@@ -23,7 +23,6 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
 
             builder.Property(c => c.FirstName)
                 .HasColumnType(SqlDbType.NVarChar + "(50)")
-                .HasMaxLength(50)
                 .IsRequired();
 
 

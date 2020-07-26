@@ -7,13 +7,18 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
-
             migrationBuilder.EnsureSchema(
                 name: "Basic");
 
             migrationBuilder.EnsureSchema(
                 name: "Shop");
+
+            migrationBuilder.EnsureSchema(
+                name: "Shared");
+
+            migrationBuilder.CreateSequence(
+                name: "Order",
+                schema: "Shared");
 
             migrationBuilder.CreateTable(
                 name: "Customer",
@@ -24,14 +29,29 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                     NationalCode = table.Column<string>(type: "Char(10)", nullable: false),
                     Email = table.Column<string>(type: "NVarChar(50)", nullable: false),
                     Password = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(type: "NVarChar(50)", maxLength: 50, nullable: false),
+                    FirstName = table.Column<string>(type: "NVarChar(50)", nullable: false),
                     LastName = table.Column<string>(type: "NVarChar(50)", nullable: false),
                     Score = table.Column<int>(type: "Int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customer", x => x.Id);
-                    table.UniqueConstraint(name: "NationalCode", x => x.NationalCode);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Order",
+                schema: "Shop",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "UniqueIdentifier", nullable: false),
+                    Number = table.Column<int>(type: "Int", nullable: false,defaultValue: "SELECT ( NEXT VALUE FOR shared.Order)"),
+                    Tax = table.Column<double>(type: "Float", nullable: false),
+                    ShippingCost = table.Column<double>(type: "Float", nullable: false),
+                    TotalAmount = table.Column<double>(type: "Float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Order", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,13 +79,40 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "OrderItem",
+                schema: "Shop",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "UniqueIdentifier", nullable: false),
+                    OrderId = table.Column<Guid>(nullable: true),
+                    ProductId = table.Column<Guid>(type: "UniqueIdentifier", nullable: false),
+                    Quantity = table.Column<int>(type: "Int", nullable: false),
+                    Price = table.Column<double>(type: "Float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderItem", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OrderItem_Order_OrderId",
+                        column: x => x.OrderId,
+                        principalSchema: "Shop",
+                        principalTable: "Order",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Address_CustomerId",
                 schema: "Shop",
                 table: "Address",
                 column: "CustomerId");
 
-
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderItem_OrderId",
+                schema: "Shop",
+                table: "OrderItem",
+                column: "OrderId");
             migrationBuilder.CreateTable(
                 name: "State",
                 schema: "Basic",
@@ -86,7 +133,7 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "Int", nullable: false),
-                    Name = table.Column<string>(type: "Char(20)",  nullable: true),
+                    Name = table.Column<string>(type: "Char(20)", nullable: true),
                     StateId = table.Column<int>(type: "Int", nullable: false),
                 },
                 constraints: table =>
@@ -107,7 +154,6 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                 table: "City",
                 column: "StateId");
 
-
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -117,7 +163,15 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                 schema: "Shop");
 
             migrationBuilder.DropTable(
+                name: "OrderItem",
+                schema: "Shop");
+
+            migrationBuilder.DropTable(
                 name: "Customer",
+                schema: "Shop");
+
+            migrationBuilder.DropTable(
+                name: "Order",
                 schema: "Shop");
 
             migrationBuilder.DropTable(
@@ -127,6 +181,11 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
             migrationBuilder.DropTable(
                 name: "State",
                 schema: "Basic");
+
+
+            migrationBuilder.DropSequence(
+                name: "Order",
+                schema: "Shared");
         }
     }
 }

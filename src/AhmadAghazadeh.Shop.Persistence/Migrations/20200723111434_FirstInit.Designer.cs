@@ -4,19 +4,22 @@ using AhmadAghazadeh.Shop.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AhmadAghazadeh.Shop.Persistence.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200723111434_FirstInit")]
+    partial class FirstInit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("Relational:Sequence:Shared.Order", "'Order', 'Shared', '1', '1', '', '', 'Int64', 'False'")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Address", b =>
@@ -87,8 +90,8 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("UniqueIdentifier");
 
-                    b.Property<long>("Number")
-                        .HasColumnType("BigInt");
+                    b.Property<int>("Number")
+                        .HasColumnType("Int");
 
                     b.Property<double>("ShippingCost")
                         .HasColumnType("Float");

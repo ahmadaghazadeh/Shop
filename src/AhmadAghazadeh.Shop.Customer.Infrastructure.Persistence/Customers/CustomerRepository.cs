@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.Persistence;
 using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers;
 using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Customers
 {
@@ -20,7 +17,7 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
 
         public void CreateCustomer(Customer customer)
         {
-            context.Set<Customer>().Add(customer);
+            Create(customer);
         }
 
         public Customer GetCustomer(Guid commandCustomerId)
@@ -35,9 +32,5 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
             return context.Set<Customer>().Any(predicate);
         }
 
-        void ICustomerRepository.Update(Customer customer)
-        {
-            Update(customer);
-        }
     }
 }

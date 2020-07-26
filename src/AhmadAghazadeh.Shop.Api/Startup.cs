@@ -4,6 +4,7 @@ using AhmadAghazadeh.Framework.AssemblyHelper;
 using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.DependencyInjection;
 using AhmadAghazadeh.Shop.Persistence;
+using AhmadAghazadeh.Shop.ReadModel.Database.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -114,7 +115,7 @@ namespace AhmadAghazadeh.Shop.Api
                 registrar.Register(services, connectionString);
             }
 
-            services.AddDbContext<ShopDbContext>(op =>
+            services.AddDbContext<ShopContext>(op =>
             {
                 op.UseSqlServer(connectionString);
                 op.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);

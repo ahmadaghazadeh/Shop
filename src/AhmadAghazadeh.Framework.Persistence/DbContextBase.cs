@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using AhmadAghazadeh.Framework.Core.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace AhmadAghazadeh.Framework.Persistence
 {
@@ -28,7 +26,9 @@ namespace AhmadAghazadeh.Framework.Persistence
 
             });
 
+
         }
+ 
 
         public abstract List<dynamic> DetectEntityMapping();
 

@@ -8,7 +8,8 @@ namespace AhmadAghazadeh.Shop.Persistence.Test
         [TestMethod]
         public void DetectMappingClasses()
         {
-
+           // var xx =ShopDbContext.DetectHasSequenceEntity();
+          // var x= xx.Count;
         }
     }
 }

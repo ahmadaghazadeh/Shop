@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using AhmadAghazadeh.Framework.Core.Domain;
 using AhmadAghazadeh.Framework.Core.EventBus;
+using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.Domain;
 using AhmadAghazadeh.Shop.OrderContext.Domain.Contracts.Orders;
 using AhmadAghazadeh.Shop.OrderContext.Domain.Orders.Exceptions;
@@ -15,7 +16,7 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
     {
         private readonly int K=1000;
 
-        public Order(int number, IEnumerable<OrderItem> cart,IEventBus eventBus)
+        public Order(long number, IEnumerable<OrderItem> cart,IEventBus eventBus)
         {
             Number = number;
             SetCart(cart);
@@ -23,15 +24,19 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
             eventBus.Publish(new OrderCreatedEvent(Id,score));
         }
 
-       
+        public Order()
+        {
+            
+        }
 
-        public int Number { get; set; }
 
-        public decimal Tax { get; set; }
+        public long Number { get; set; }
 
-        public decimal ShippingCost { get; set; }
+        public double Tax { get; set; }
 
-        public decimal TotalAmount { get; set; }
+        public double ShippingCost { get; set; }
+
+        public double TotalAmount { get; set; }
 
         public ICollection<OrderItem> Cart { get; set; }
         public IEnumerable<Expression<Func<Order, object>>> GetAggregateExpressions()
@@ -59,11 +64,11 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
         {
             var subTotal = Cart.Sum(item => item.Price * item.Quantity);
             ShippingCost = subTotal < 1000000 ? 0 : 10000;
-            Tax = (ShippingCost + subTotal) * (decimal) 0.13;
+            Tax = (ShippingCost + subTotal) * (double) 0.13;
             TotalAmount = subTotal + Tax + ShippingCost;
         }
 
-        private void AddOrderItem(Guid productId, int quantity, decimal price)
+        private void AddOrderItem(Guid productId, int quantity, double price)
         {
             Cart.Add(new OrderItem(productId, quantity, price));
         }

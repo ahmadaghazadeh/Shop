@@ -1,21 +1,13 @@
-﻿
-using AhmadAghazadeh.Framework.Core.Persistence;
+﻿using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.DependencyInjection;
-using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Services;
-using AhmadAghazadeh.Shop.CustomerContext.Domain.Services.Customers;
 using AhmadAghazadeh.Shop.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AhmadAghazadeh.Shop.CustomerContext.Configuration
+namespace AhmadAghazadeh.Shop.OrderContext.Configuration
 {
-    public class Registrar  : RegistrarBase<Registrar>
+    public class Registrar : RegistrarBase<Registrar>
     {
-        public override void Register(IServiceCollection services)
-        {
-         
-            services.AddTransient<INationalCodeDuplicationChecker, NationalCodeDuplicationChecker>();
-        }
 
         public override void RegisterPersistence(IServiceCollection services, string connectionString)
         {

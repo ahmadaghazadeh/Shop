@@ -4,7 +4,7 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Services.Orders
 {
     public interface IOrderRepository
     {
-        int GenerateOrderNumber();
-        void Create(Order order);
+        long GenerateOrderNumber();
+        void OrderCreate(Order order);
     }
 }

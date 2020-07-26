@@ -17,7 +17,7 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
         
 
             builder.Property(a => a.AddressLine)
-                .HasColumnType(SqlDbType.NVarChar +"250")
+                .HasColumnType(SqlDbType.NVarChar +"(250)")
                  
                 .IsRequired();
 
@@ -27,13 +27,13 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
 
 
             builder.Property(a => a.Coordinate)
-                .HasColumnType(SqlDbType.NVarChar.ToString() + "25") ;
+                .HasColumnType(SqlDbType.NVarChar.ToString() + "(25)") ;
 
             builder.Property(a => a.PostalCode)
-                .HasColumnType(SqlDbType.Char.ToString() + "10") ;
+                .HasColumnType(SqlDbType.Char.ToString() + "(10)") ;
 
             builder.Property(a => a.Telephone)
-                .HasColumnType(SqlDbType.Char.ToString() + "11") ;
+                .HasColumnType(SqlDbType.Char.ToString() + "(11)") ;
 
 
         }

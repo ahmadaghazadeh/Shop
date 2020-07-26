@@ -13,6 +13,11 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Domain.Customers
             SetPostalCode(postalCode);
         }
 
+        public Address()
+        {
+            
+        }
+
         public Customer Customer { get;  set; }
 
         public string PostalCode { get; private set; }

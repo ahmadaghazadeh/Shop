@@ -8,6 +8,6 @@ namespace AhmadAghazadeh.Shop.OrderContext.Application.Contracts.Orders
 
         public int Quantity { get;   set; }
 
-        public decimal Price { get;   set; }
+        public double Price { get;   set; }
     }
 }

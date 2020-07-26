@@ -16,9 +16,9 @@ namespace AhmadAghazadeh.Framework.Persistence
             this.context = (DbContextBase)context;
         }
 
-        protected void Update(TAggregateRoot aggregateRoot)
+        protected void Create(TAggregateRoot aggregateRoot)
         {
-            this.context.Entry(aggregateRoot).State = EntityState.Modified;
+            this.context.Set<TAggregateRoot>().Add(aggregateRoot);
         }
 
         public IQueryable<TAggregateRoot> Set
