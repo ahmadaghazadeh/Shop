@@ -38,7 +38,7 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
 
         public double TotalAmount { get; set; }
 
-        public ICollection<OrderItem> Cart { get; set; }
+        public ICollection<OrderItem> Cart { get; set; }=new HashSet<OrderItem>();
        
 
         private void SetCart(IEnumerable<OrderItem> cart)

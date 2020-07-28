@@ -15,7 +15,7 @@ namespace AhmadAghazadeh.Framework.EventBus
         }
         public void Publish<TEvent>(TEvent domainEvent)
         {
-            var existEvent = subscriptionItems.Single(e => e.EventType == typeof(TEvent));
+            var existEvent = subscriptionItems.SingleOrDefault(e => e.EventType == typeof(TEvent));
             if (existEvent != null)
             {
                 foreach (var eventHandler in existEvent.EventHandler)
@@ -27,7 +27,7 @@ namespace AhmadAghazadeh.Framework.EventBus
 
         public void Subscribe<TEvent>(Action<dynamic> action)
         {
-            var existEvent = subscriptionItems.Single(e => e.EventType == typeof(TEvent));
+            var existEvent = subscriptionItems.SingleOrDefault(e => e.EventType == typeof(TEvent));
             if (existEvent == null)
             {
                 var newSubscription = new EventSubscriptionItem()
