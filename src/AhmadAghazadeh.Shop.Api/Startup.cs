@@ -55,9 +55,7 @@ namespace AhmadAghazadeh.Shop.Api
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TKD Service", Version = "v1" });
-                c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-                c.MapType(typeof(IFormFile), () => new OpenApiSchema() { Type = "file", Format = "binary" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Shop Service", Version = "v1" });
             });
             services.AddDbContext<ShopDbContext>(op =>
             {

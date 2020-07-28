@@ -17,23 +17,22 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
         
 
             builder.Property(a => a.AddressLine)
-                .HasColumnType(SqlDbType.NVarChar +"(250)")
+                .HasMaxLength(250)
                  
                 .IsRequired();
 
             builder.Property(a => a.CityId)
-                .HasColumnType(SqlDbType.Int.ToString())
+                .HasColumnType(nameof(SqlDbType.Int))
                 .IsRequired();
 
 
-            builder.Property(a => a.Coordinate)
-                .HasColumnType(SqlDbType.NVarChar.ToString() + "(25)") ;
+            builder.Property(a => a.Coordinate).HasMaxLength(25);
 
             builder.Property(a => a.PostalCode)
-                .HasColumnType(SqlDbType.Char.ToString() + "(10)") ;
+                .HasColumnType(nameof(SqlDbType.NChar) + "(10)") ;
 
             builder.Property(a => a.Telephone)
-                .HasColumnType(SqlDbType.Char.ToString() + "(11)") ;
+                .HasColumnType(nameof(SqlDbType.NChar) + "(11)") ;
 
 
         }

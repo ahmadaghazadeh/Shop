@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Linq;
 using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.Persistence;
 using AhmadAghazadeh.Shop.OrderContext.Domain.Orders;
-using AhmadAghazadeh.Shop.OrderContext.Domain.Services.Orders;
+using AhmadAghazadeh.Shop.OrderContext.Domain.Orders.Services;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +35,14 @@ namespace AhmadAghazadeh.Shop.OrderContext.Infrastructure.Persistence.Orders
         public void OrderCreate(Order order)
         {
           Create(order);
+        }
+
+        public override IQueryable<Order> Set()
+        {
+            lock (context)
+            {
+                return context.Set<Order>().Include(o => o.Cart);
+            }
         }
     }
 }

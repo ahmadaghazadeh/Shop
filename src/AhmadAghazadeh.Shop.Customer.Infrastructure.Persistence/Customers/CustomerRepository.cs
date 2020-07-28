@@ -5,6 +5,7 @@ using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.Persistence;
 using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers;
 using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Customers
 {
@@ -32,5 +33,9 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
             return context.Set<Customer>().Any(predicate);
         }
 
+        public override IQueryable<Customer> Set()
+        {
+            return context.Set<Customer>().Include(a => a.Addresses);
+        }
     }
 }

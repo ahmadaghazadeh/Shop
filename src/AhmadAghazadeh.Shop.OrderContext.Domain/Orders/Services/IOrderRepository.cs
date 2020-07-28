@@ -1,6 +1,4 @@
-﻿using AhmadAghazadeh.Shop.OrderContext.Domain.Orders;
-
-namespace AhmadAghazadeh.Shop.OrderContext.Domain.Services.Orders
+﻿namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders.Services
 {
     public interface IOrderRepository
     {

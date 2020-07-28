@@ -12,7 +12,7 @@ using AhmadAghazadeh.Shop.OrderContext.Domain.Orders.Exceptions;
 
 namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
 {
-    public class Order:EntityBase,IAggregateRoot<Order>
+    public class Order:EntityBase,IAggregateRoot
     {
         private readonly int K=1000;
 
@@ -39,10 +39,7 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
         public double TotalAmount { get; set; }
 
         public ICollection<OrderItem> Cart { get; set; }
-        public IEnumerable<Expression<Func<Order, object>>> GetAggregateExpressions()
-        {
-            yield return c => c.Cart;
-        }
+       
 
         private void SetCart(IEnumerable<OrderItem> cart)
         {

@@ -3,7 +3,7 @@ using AhmadAghazadeh.Framework.Application;
 using AhmadAghazadeh.Framework.Core.EventBus;
 using AhmadAghazadeh.Shop.OrderContext.Application.Contracts.Orders;
 using AhmadAghazadeh.Shop.OrderContext.Domain.Orders;
-using AhmadAghazadeh.Shop.OrderContext.Domain.Services.Orders;
+using AhmadAghazadeh.Shop.OrderContext.Domain.Orders.Services;
 
 namespace AhmadAghazadeh.Shop.OrderContext.Application.Orders
 {

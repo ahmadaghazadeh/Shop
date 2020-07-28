@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AhmadAghazadeh.Framework.Persistence
 {
-    public abstract class RepositoryBase<TAggregateRoot> where TAggregateRoot : EntityBase, IAggregateRoot<TAggregateRoot>,new()
+    public abstract class RepositoryBase<TAggregateRoot> where TAggregateRoot : EntityBase, IAggregateRoot
     {
         protected readonly DbContextBase context;
 
@@ -21,24 +21,12 @@ namespace AhmadAghazadeh.Framework.Persistence
             this.context.Set<TAggregateRoot>().Add(aggregateRoot);
         }
 
-        public IQueryable<TAggregateRoot> Set
-        {
-            get
-            {
-                var set = context.Set<TAggregateRoot>().AsQueryable();
-                var includeExpression = new TAggregateRoot().GetAggregateExpressions();
-                foreach (var expression in includeExpression)
-                {
-                    set.Include(expression);
-                }
-
-                return set;
-            }
-        }
+        public abstract IQueryable<TAggregateRoot> Set();
+        
 
         protected TAggregateRoot GetById(Guid id)
         {
-          return  Set.Single(e => e.Id == id);
+          return  Set().ToList().Single(e => e.Id == id);
         }
 
 

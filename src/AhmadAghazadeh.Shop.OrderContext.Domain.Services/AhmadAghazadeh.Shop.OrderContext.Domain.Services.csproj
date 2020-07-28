@@ -8,4 +8,8 @@
     <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Domain\AhmadAghazadeh.Shop.OrderContext.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Orders\" />
+  </ItemGroup>
+
 </Project>

@@ -14,24 +14,24 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.Custome
             Initial(builder);
              
             builder.Property(c => c.Email)
-                .HasColumnType(SqlDbType.NVarChar+"(50)")
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(c => c.NationalCode)
-                .HasColumnType(SqlDbType.Char+"(10)")
+                .HasColumnType(SqlDbType.NChar+"(10)")
                 .IsRequired();
 
             builder.Property(c => c.FirstName)
-                .HasColumnType(SqlDbType.NVarChar + "(50)")
+                .HasMaxLength(100)
                 .IsRequired();
 
 
             builder.Property(c => c.LastName)
-                .HasColumnType(SqlDbType.NVarChar + "(50)")
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(c => c.Score)
-                .HasColumnType(SqlDbType.Int.ToString()) 
+                .HasColumnType(nameof(SqlDbType.Int)) 
                 .IsRequired();
         }
     }

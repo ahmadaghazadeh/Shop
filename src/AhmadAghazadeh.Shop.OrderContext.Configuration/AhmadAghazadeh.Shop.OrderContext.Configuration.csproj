@@ -6,6 +6,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Framework.Security\AhmadAghazadeh.Framework.Security.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Application\AhmadAghazadeh.Shop.OrderContext.Application.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Domain.Services\AhmadAghazadeh.Shop.OrderContext.Domain.Services.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Facade\AhmadAghazadeh.Shop.OrderContext.Facade.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence.csproj" />
   </ItemGroup>
 

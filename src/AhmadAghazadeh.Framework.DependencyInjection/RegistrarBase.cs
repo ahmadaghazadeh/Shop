@@ -19,7 +19,7 @@ namespace AhmadAghazadeh.Framework.DependencyInjection
         protected RegistrarBase()
         {
             var nameSpaceSpell = typeof(TRegister).Namespace?.Split('.');
-            var schemaName = nameSpaceSpell?[0] + "." + nameSpaceSpell?[1];
+            var schemaName = nameSpaceSpell?[0] + "." + nameSpaceSpell?[1]+ "." + nameSpaceSpell?[2];
             assemblyHelper = new AssemblyHelper.AssemblyHelper(schemaName);
         }
 

@@ -10,12 +10,12 @@ using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers.Services;
 
 namespace AhmadAghazadeh.Shop.CustomerContext.Domain.Customers
 {
-    public class Customer: EntityBase,IAggregateRoot<Customer>
+    public class Customer: EntityBase,IAggregateRoot 
     {
         private readonly INationalCodeDuplicationChecker nationalCodeDuplicationChecker;
         private readonly IHashProvider hashProvider;
 
-        public Customer(){}
+        protected Customer(){}
 
         public Customer(
             INationalCodeDuplicationChecker nationalCodeDuplicationChecker,
@@ -142,10 +142,7 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Domain.Customers
         }
 
 
-        public IEnumerable<Expression<Func<Customer, object>>> GetAggregateExpressions()
-        {
-            yield return c => c.Addresses;
-        }
+        
 
         
     }

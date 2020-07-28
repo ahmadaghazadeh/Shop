@@ -4,8 +4,8 @@ using System.Linq.Expressions;
 
 namespace AhmadAghazadeh.Framework.Core.Domain
 {
-    public interface IAggregateRoot<TAggregateRoot>
+    public interface IAggregateRoot
     {
-        IEnumerable<Expression<Func<TAggregateRoot, object>>> GetAggregateExpressions();
+        
     }
 }

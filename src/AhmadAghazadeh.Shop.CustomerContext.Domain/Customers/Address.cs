@@ -13,7 +13,7 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Domain.Customers
             SetPostalCode(postalCode);
         }
 
-        public Address()
+        protected Address()
         {
             
         }

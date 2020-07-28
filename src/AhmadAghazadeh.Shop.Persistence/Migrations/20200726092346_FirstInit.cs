@@ -26,11 +26,11 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "UniqueIdentifier", nullable: false),
-                    NationalCode = table.Column<string>(type: "Char(10)", nullable: false),
-                    Email = table.Column<string>(type: "NVarChar(50)", nullable: false),
+                    NationalCode = table.Column<string>(type: "NChar(10)", nullable: false),
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
                     Password = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(type: "NVarChar(50)", nullable: false),
-                    LastName = table.Column<string>(type: "NVarChar(50)", nullable: false),
+                    FirstName = table.Column<string>(maxLength: 100, nullable: false),
+                    LastName = table.Column<string>(maxLength: 100, nullable: false),
                     Score = table.Column<int>(type: "Int", nullable: false)
                 },
                 constraints: table =>
@@ -44,7 +44,7 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "UniqueIdentifier", nullable: false),
-                    Number = table.Column<int>(type: "Int", nullable: false,defaultValue: "SELECT ( NEXT VALUE FOR shared.Order)"),
+                    Number = table.Column<long>(type: "BigInt", nullable: false),
                     Tax = table.Column<double>(type: "Float", nullable: false),
                     ShippingCost = table.Column<double>(type: "Float", nullable: false),
                     TotalAmount = table.Column<double>(type: "Float", nullable: false)
@@ -60,12 +60,12 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "UniqueIdentifier", nullable: false),
-                    PostalCode = table.Column<string>(type: "Char(10)", nullable: true),
-                    AddressLine = table.Column<string>(type: "NVarChar(250)", nullable: false),
+                    PostalCode = table.Column<string>(type: "NChar(10)", nullable: true),
+                    AddressLine = table.Column<string>(maxLength: 250, nullable: false),
                     CityId = table.Column<int>(type: "Int", nullable: false),
                     CustomerId = table.Column<Guid>(nullable: false),
-                    Telephone = table.Column<string>(type: "Char(11)", nullable: true),
-                    Coordinate = table.Column<string>(type: "NVarChar(25)", nullable: true)
+                    Telephone = table.Column<string>(type: "NChar(11)", nullable: true),
+                    Coordinate = table.Column<string>(maxLength: 25, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -113,6 +113,7 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                 schema: "Shop",
                 table: "OrderItem",
                 column: "OrderId");
+
             migrationBuilder.CreateTable(
                 name: "State",
                 schema: "Basic",
@@ -153,7 +154,6 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
                 schema: "Basic",
                 table: "City",
                 column: "StateId");
-
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

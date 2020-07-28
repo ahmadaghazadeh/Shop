@@ -14,20 +14,20 @@ namespace AhmadAghazadeh.Shop.OrderContext.Infrastructure.Persistence.Orders.Map
 
             
             builder.Property(c => c.Number)
-                .HasColumnType(SqlDbType.BigInt.ToString())
+                .HasColumnType(nameof(SqlDbType.BigInt))
                 .IsRequired();
 
             builder.Property(c => c.ShippingCost)
-                .HasColumnType(SqlDbType.Float.ToString())
+                .HasColumnType(nameof(SqlDbType.Float))
                 .IsRequired();
 
             builder.Property(c => c.TotalAmount)
-                .HasColumnType(SqlDbType.Float.ToString())
+                .HasColumnType(nameof(SqlDbType.Float))
                 .IsRequired();
 
 
             builder.Property(c => c.Tax)
-                .HasColumnType(SqlDbType.Float.ToString())
+                .HasColumnType(nameof(SqlDbType.Float))
                 .IsRequired();
 
              

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AhmadAghazadeh.Shop.Persistence.Migrations
 {
     [DbContext(typeof(ShopDbContext))]
-    [Migration("20200725105256_ChangeOrderNumberType")]
-    partial class ChangeOrderNumberType
+    [Migration("20200726092346_FirstInit")]
+    partial class FirstInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,22 +28,24 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
 
                     b.Property<string>("AddressLine")
                         .IsRequired()
-                        .HasColumnType("NVarChar(250)");
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
 
                     b.Property<int>("CityId")
                         .HasColumnType("Int");
 
                     b.Property<string>("Coordinate")
-                        .HasColumnType("NVarChar(25)");
+                        .HasColumnType("nvarchar(25)")
+                        .HasMaxLength(25);
 
                     b.Property<Guid>("CustomerId")
                         .HasColumnType("UniqueIdentifier");
 
                     b.Property<string>("PostalCode")
-                        .HasColumnType("Char(10)");
+                        .HasColumnType("NChar(10)");
 
                     b.Property<string>("Telephone")
-                        .HasColumnType("Char(11)");
+                        .HasColumnType("NChar(11)");
 
                     b.HasKey("Id");
 
@@ -59,19 +61,22 @@ namespace AhmadAghazadeh.Shop.Persistence.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("NVarChar(50)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("NVarChar(50)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("NVarChar(50)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("NationalCode")
                         .IsRequired()
-                        .HasColumnType("Char(10)");
+                        .HasColumnType("NChar(10)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");

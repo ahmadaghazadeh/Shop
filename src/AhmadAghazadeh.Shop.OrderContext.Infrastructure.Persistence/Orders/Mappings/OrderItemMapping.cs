@@ -17,15 +17,15 @@ namespace AhmadAghazadeh.Shop.OrderContext.Infrastructure.Persistence.Orders.Map
                 .WithMany(c => c.Cart);
 
             builder.Property(c => c.Quantity)
-                .HasColumnType(SqlDbType.Int.ToString())
+                .HasColumnType(nameof(SqlDbType.Int))
                 .IsRequired();
 
             builder.Property(c => c.Price)
-                .HasColumnType(SqlDbType.Float.ToString())
+                .HasColumnType(nameof(SqlDbType.Float))
                 .IsRequired();
 
             builder.Property(c => c.ProductId)
-                .HasColumnType(SqlDbType.UniqueIdentifier.ToString())
+                .HasColumnType(nameof(SqlDbType.UniqueIdentifier))
                 .IsRequired();
         }
     }
