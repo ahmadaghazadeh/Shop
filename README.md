@@ -24,8 +24,8 @@ Test-driven development (TDD) is a software development process that relies on t
 
 ### Solution Structure
 
-<img src="resources/Solution1.png" >
+<img src="resources/Solution1.jpg" >
 
 ### Unit Test List
 
-<img src="resources/Test1.png" >
+<img src="resources/Test1.jpg" >
