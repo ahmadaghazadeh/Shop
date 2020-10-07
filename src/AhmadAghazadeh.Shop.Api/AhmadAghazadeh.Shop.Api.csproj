@@ -9,25 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.6" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AhmadAghazadeh.Framework.AssemblyHelper\AhmadAghazadeh.Framework.AssemblyHelper.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Configuration\AhmadAghazadeh.Shop.CustomerContext.Configuration.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Configuration\AhmadAghazadeh.Shop.OrderContext.Configuration.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Facade.Contracts\AhmadAghazadeh.Shop.OrderContext.Facade.Contracts.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.ReadModel.Database\AhmadAghazadeh.Shop.ReadModel.Database.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.ReadModel.Facade.Contracts\AhmadAghazadeh.Shop.ReadModel.Query.Facade.Contracts.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.ReadModel.Facade\AhmadAghazadeh.Shop.ReadModel.Query.Facade.csproj" />
+    <ProjectReference Include="..\Ahmad.Aghazadeh.Shop.CustomerContext\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Framework\AhmadAghazadeh.Framework.AssemblyHelper\AhmadAghazadeh.Framework.AssemblyHelper.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Framework\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext\AhmadAghazadeh.Shop.OrderContext.Application.Contracts\AhmadAghazadeh.Shop.OrderContext.Application.Contracts.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext\AhmadAghazadeh.Shop.OrderContext.Facade.Contracts\AhmadAghazadeh.Shop.OrderContext.Facade.Contracts.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.ReadModel\AhmadAghazadeh.Shop.ReadModel.Database\AhmadAghazadeh.Shop.ReadModel.Database.csproj" />
   </ItemGroup>
 
 

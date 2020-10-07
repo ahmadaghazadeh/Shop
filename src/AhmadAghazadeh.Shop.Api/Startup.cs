@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using AhmadAghazadeh.Framework.AssemblyHelper;
 using AhmadAghazadeh.Framework.Core.Persistence;
 using AhmadAghazadeh.Framework.DependencyInjection;
@@ -7,7 +6,6 @@ using AhmadAghazadeh.Shop.Persistence;
 using AhmadAghazadeh.Shop.ReadModel.Database.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -63,10 +61,12 @@ namespace AhmadAghazadeh.Shop.Api
                 op.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
-            var serviceProvider = services.BuildServiceProvider();
-            var dbContext = serviceProvider.GetRequiredService<IDbContext>();
-            if (env.IsDevelopment() == false)
-                dbContext.Migrate();
+            using (var serviceProvider = services.BuildServiceProvider())
+            {
+                var dbContext = serviceProvider.GetRequiredService<ShopDbContext>();
+                if (env.IsDevelopment() == false)
+                    dbContext.Migrate();
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

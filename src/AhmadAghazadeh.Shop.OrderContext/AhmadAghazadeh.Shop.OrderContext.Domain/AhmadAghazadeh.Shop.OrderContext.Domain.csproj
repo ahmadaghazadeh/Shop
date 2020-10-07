@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\AhmadAghazadeh.Framework\Ahmad.Aghazadeh.Framework.Core\AhmadAghazadeh.Framework.Core.csproj" />
+    <ProjectReference Include="..\..\AhmadAghazadeh.Framework\AhmadAghazadeh.Framework.Domain\AhmadAghazadeh.Framework.Domain.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Domain.Contracts\AhmadAghazadeh.Shop.OrderContext.Domain.Contracts.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Resources\AhmadAghazadeh.Shop.OrderContext.Resources.csproj" />
+  </ItemGroup>
+
+</Project>
