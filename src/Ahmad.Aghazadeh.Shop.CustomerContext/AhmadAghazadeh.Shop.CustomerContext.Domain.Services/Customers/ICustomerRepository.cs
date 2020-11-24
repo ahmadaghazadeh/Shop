@@ -6,7 +6,7 @@ using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers;
 
 namespace AhmadAghazadeh.Shop.CustomerContext.Domain.Services.Customers
 {
-    public interface ICustomerRepository : IRepository<Customer>
+    public interface ICustomerRepository : IRepository
     {
         void CreateCustomer(Customer customer);
         Customer GetCustomer(Guid commandCustomerId);

@@ -29,11 +29,12 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Application.Customers
            var customer=new Customer(
                nationalCodeDuplicationChecker,
                hashProvider,
-               command.NationalCode,
-               command.Email,
-               command.Password,
                command.FirstName,
-               command.LastName);
+               command.LastName,
+               command.NationalCode,
+               command.Password,
+               command.Email
+               );
 
            customerRepository.CreateCustomer(customer);
         }

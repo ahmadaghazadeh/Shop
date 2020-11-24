@@ -24,6 +24,7 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Domain.Customers
 
         public ICollection<Address> Addresses { get; set; }=new HashSet<Address>();
 
+        protected Customer() { }
         public Customer(
             INationalCodeDuplicationChecker nationalCodeDuplicationChecker, 
             IHashProvider hashProvider,

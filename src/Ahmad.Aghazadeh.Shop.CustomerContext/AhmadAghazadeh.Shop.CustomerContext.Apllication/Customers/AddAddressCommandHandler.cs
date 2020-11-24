@@ -1,6 +1,7 @@
 ﻿using System;
 using AhmadAghazadeh.Framework.Application;
 using AhmadAghazadeh.Shop.CustomerContext.Application.Contracts.Customers;
+using AhmadAghazadeh.Shop.CustomerContext.Domain.Customers;
 using AhmadAghazadeh.Shop.CustomerContext.Domain.Services.Customers;
 
 namespace AhmadAghazadeh.Shop.CustomerContext.Application.Customers
@@ -16,12 +17,9 @@ namespace AhmadAghazadeh.Shop.CustomerContext.Application.Customers
         public void Execute(AddAddressCommand command)
         {
             var customer = customerRepository.GetCustomer(command.CustomerId);
-            // var address = new Address(customer.Id, command.PostalCode, command.AddressLine, command.CityId)
-            // {
-            //     Telephone = command.Telephone,
-            //     Coordinate = command.Coordinate 
-            // };
-            //customer.AddAddress(address);
+            var address = new Address(customer.Id, command.PostalCode, command.AddressLine, command.CityId) ;
+            address.SetTelephone(command.Telephone);
+            customer.AddAddress(address);
         }
     }
 }

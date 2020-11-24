@@ -37,8 +37,8 @@ namespace AhmadAghazadeh.Shop.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var assemblyHelper = new AssemblyHelper(nameof(AhmadAghazadeh));
-            services.AddControllers();
+            var assemblyHelper = new AssemblyDiscovery("AhmadAghazadeh*.dll");
+           
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
@@ -47,23 +47,25 @@ namespace AhmadAghazadeh.Shop.Api
             var build = builder.Build();
             var connectionString = build.GetConnectionString("DefaultConnection");
 
-            services.AddMvc();
-
             Registrar(services, env, assemblyHelper);
+            services.AddControllers();
+            services.AddMvc();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Shop Service", Version = "v1" });
             });
-            services.AddDbContext<ShopDbContext>(op =>
+            
+            services.AddDbContext<IDbContext, ShopDbContext>((provider, options) =>
             {
-                op.UseSqlServer(connectionString);
-                op.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+                options.UseSqlServer(connectionString);
+                options.EnableSensitiveDataLogging();
+
             });
 
             using (var serviceProvider = services.BuildServiceProvider())
             {
-                var dbContext = serviceProvider.GetRequiredService<ShopDbContext>();
+                var dbContext = serviceProvider.GetRequiredService<IDbContext>();
                 if (env.IsDevelopment() == false)
                     dbContext.Migrate();
             }
@@ -83,6 +85,8 @@ namespace AhmadAghazadeh.Shop.Api
 
             app.UseAuthorization();
 
+            app.UseStaticFiles();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -90,7 +94,7 @@ namespace AhmadAghazadeh.Shop.Api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            app.UseStaticFiles();
+           
 
             app.UseEndpoints(endpoints =>
             {
@@ -98,7 +102,7 @@ namespace AhmadAghazadeh.Shop.Api
             });
         }
 
-        private static void Registrar(IServiceCollection services, IWebHostEnvironment env, AssemblyHelper assemblyHelper)
+        private static void Registrar(IServiceCollection services, IWebHostEnvironment env, AssemblyDiscovery assemblyHelper)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
@@ -107,10 +111,10 @@ namespace AhmadAghazadeh.Shop.Api
             var build = builder.Build();
             var connectionString = build.GetConnectionString("DefaultConnection");
 
-            var registrars = assemblyHelper.GetInstanceByInterface(typeof(IRegistrar));
+            var registrars = assemblyHelper.DiscoverInstances<IRegistrar>("AhmadAghazadeh");
             foreach (IRegistrar registrar in registrars)
             {
-                registrar.Register(services, connectionString);
+                registrar.Register(services, assemblyHelper);
             }
 
             services.AddDbContext<ShopContext>(op =>

@@ -6,6 +6,7 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
 {
     public class OrderItem : EntityBase
     {
+        protected OrderItem() { }
         public OrderItem(Guid orderId,Guid productId,int quantity,double price)
         {
             ProductId = productId;
@@ -13,7 +14,7 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
             SetQuantity(quantity);
             SetPrice(price);
         }
-
+      
         public Order Order { get; set; }
         public Guid OrderId { get; private set; }
         public Guid ProductId { get; private set; }

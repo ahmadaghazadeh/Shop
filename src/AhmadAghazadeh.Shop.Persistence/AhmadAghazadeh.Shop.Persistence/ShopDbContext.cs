@@ -13,11 +13,23 @@ namespace AhmadAghazadeh.Shop.Persistence
         {
             
         }
-    
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            var entityMapping = DetectEntityMapping();
+
+            entityMapping.ForEach(a =>
+            {
+                modelBuilder.ApplyConfiguration(a);
+
+            });
+        }
+
         public override List<dynamic> DetectEntityMapping()
         {
-            var assemblyHelper = new AssemblyHelper("AhmadAghazadeh.");
-            var getTypes = assemblyHelper.GetTypes(typeof(EntityMappingBase<>))
+            var assemblyHelper = new AssemblyDiscovery("AhmadAghazadeh*.dll");
+            var getTypes = assemblyHelper.DiscoverTypes<IEntityMapping>("AhmadAghazadeh")
                 .Select(Activator.CreateInstance)
                 .Cast<dynamic>()
                 .ToList();

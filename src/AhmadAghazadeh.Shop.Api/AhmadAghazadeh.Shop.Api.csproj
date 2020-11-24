@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -9,20 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.8">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ahmad.Aghazadeh.Shop.CustomerContext\AhmadAghazadeh.Shop.Customer.Infrastructure.Persistence\AhmadAghazadeh.Shop.CustomerContext.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\Ahmad.Aghazadeh.Shop.CustomerContext\AhmadAghazadeh.Shop.CustomerContext.Configuration\AhmadAghazadeh.Shop.CustomerContext.Configuration.csproj" />
     <ProjectReference Include="..\Ahmad.Aghazadeh.Shop.CustomerContext\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts\AhmadAghazadeh.Shop.CustomerContext.Facade.Contracts.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Framework\AhmadAghazadeh.Framework.AssemblyHelper\AhmadAghazadeh.Framework.AssemblyHelper.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Framework\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext\AhmadAghazadeh.Shop.OrderContext.Application.Contracts\AhmadAghazadeh.Shop.OrderContext.Application.Contracts.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext\AhmadAghazadeh.Shop.OrderContext.Configuration\AhmadAghazadeh.Shop.OrderContext.Configuration.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext\AhmadAghazadeh.Shop.OrderContext.Facade.Contracts\AhmadAghazadeh.Shop.OrderContext.Facade.Contracts.csproj" />
+    <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext\AhmadAghazadeh.Shop.OrderContext.Infrastructure.Persistence\AhmadAghazadeh.Shop.OrderContext.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.ReadModel\AhmadAghazadeh.Shop.ReadModel.Database\AhmadAghazadeh.Shop.ReadModel.Database.csproj" />
   </ItemGroup>

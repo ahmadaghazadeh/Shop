@@ -5,13 +5,13 @@ using AhmadAghazadeh.Framework.Core.EventBus;
 
 namespace AhmadAghazadeh.Framework.EventBus
 {
-    public class EventBus:IEventBus
+    public class InMemoryEventBus:IEventBus
     {
-        private readonly IList<EventSubscriptionItem> subscriptionItems;
+        private readonly IList<InMemoryEventSubscriptionItem> subscriptionItems;
 
-        public EventBus()
+        public InMemoryEventBus()
         {
-            subscriptionItems = new List<EventSubscriptionItem>();
+            subscriptionItems = new List<InMemoryEventSubscriptionItem>();
         }
         public void Publish<TEvent>(TEvent domainEvent)
         {
@@ -30,16 +30,16 @@ namespace AhmadAghazadeh.Framework.EventBus
             var existEvent = subscriptionItems.SingleOrDefault(e => e.EventType == typeof(TEvent));
             if (existEvent == null)
             {
-                var newSubscription = new EventSubscriptionItem()
+                var newSubscription = new InMemoryEventSubscriptionItem()
                 {
                     EventType = typeof(TEvent),
-                    EventHandler = new List<EventHandler>() { new EventHandler(action) }
+                    EventHandler = new List<InMemoryEventHandler>() { new InMemoryEventHandler(action) }
                 };
                 subscriptionItems.Add(newSubscription);
             }
             else
             {
-                existEvent.EventHandler.Add(new EventHandler(action));
+                existEvent.EventHandler.Add(new InMemoryEventHandler(action));
             }
             
         }

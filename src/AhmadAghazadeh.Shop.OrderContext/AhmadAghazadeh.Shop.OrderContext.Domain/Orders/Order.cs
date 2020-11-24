@@ -19,7 +19,7 @@ namespace AhmadAghazadeh.Shop.OrderContext.Domain.Orders
         public double Tax { get;private set; }
         private readonly IEventBus eventBus;
 
-
+        protected Order() { }
         public Order(long number, IEventBus eventBus)
         {
             Number = number;

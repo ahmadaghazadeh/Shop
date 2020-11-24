@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace AhmadAghazadeh.Framework.EventBus
 {
-    internal class EventSubscriptionItem
+    internal class InMemoryEventSubscriptionItem
     {
         
 
         public Type EventType { get; set; }
 
-        public IList<EventHandler> EventHandler { get;  set; }
+        public IList<InMemoryEventHandler> EventHandler { get;  set; }
     }
 }

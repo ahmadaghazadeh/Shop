@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Framework.Security\AhmadAghazadeh.Framework.Security.csproj" />
+    <ProjectReference Include="..\..\AhmadAghazadeh.Framework\AhmadAghazadeh.Framework.AssemblyHelper\AhmadAghazadeh.Framework.AssemblyHelper.csproj" />
+    <ProjectReference Include="..\..\AhmadAghazadeh.Framework\AhmadAghazadeh.Framework.DependencyInjection\AhmadAghazadeh.Framework.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Application\AhmadAghazadeh.Shop.OrderContext.Application.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Domain.Services\AhmadAghazadeh.Shop.OrderContext.Domain.Services.csproj" />
     <ProjectReference Include="..\AhmadAghazadeh.Shop.OrderContext.Facade\AhmadAghazadeh.Shop.OrderContext.Facade.csproj" />
-    <ProjectReference Include="..\AhmadAghazadeh.Shop.Persistence\AhmadAghazadeh.Shop.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

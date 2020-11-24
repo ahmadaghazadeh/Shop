@@ -2,9 +2,9 @@
 
 namespace AhmadAghazadeh.Framework.EventBus
 {
-    public class EventHandler
+    public class InMemoryEventHandler
     {
-        public EventHandler(Action<object> handlingAction)
+        public InMemoryEventHandler(Action<object> handlingAction)
         {
             this.Action = handlingAction;
         }

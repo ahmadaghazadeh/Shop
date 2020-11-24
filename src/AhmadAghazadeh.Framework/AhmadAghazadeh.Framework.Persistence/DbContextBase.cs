@@ -24,10 +24,7 @@ namespace AhmadAghazadeh.Framework.Persistence
                 modelBuilder.ApplyConfiguration(a);
 
             });
-
-
         }
- 
 
         public abstract List<dynamic> DetectEntityMapping();
 
